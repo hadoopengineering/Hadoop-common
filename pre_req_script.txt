@@ -1,0 +1,8 @@
+echo "echo never  > /sys/kernel/mm/redhat_transparent_hugepage/enabled" >> /etc/rc.local
+echo "echo never  > /sys/kernel/mm/redhat_transparent_hugepage/defrag" >> /etc/rc.local
+echo "vm.swappiness = 10" >> /etc/sysctl.conf
+chkconfig  iptables off
+chkconfig ip6tables off
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
+yum  -y  install ntp
+chkconfig ntpd on
